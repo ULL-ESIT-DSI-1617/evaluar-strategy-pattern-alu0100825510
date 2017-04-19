@@ -1,21 +1,15 @@
-module.exports = function(shape, options) {
-  var area = 0;
+var sshape = require('./shape.js');
 
-  switch (shape) {
-    case 'Triangle':
-      area = .5 * options.width * options.height;
-      break;
 
-    case 'Square':
-      area = Math.pow(options.width, 2);
-      break;
 
-    case 'Rectangle':
-      area = options.width * options.height;
-      break;
 
-    default:
-      throw new Error('Invalid shape: ' + shape);
+module.exports.getArea = function getArea(shape, options) {
+  var Shape = sshape.shapes[shape], area = 0;
+
+  if (Shape && typeof Shape === 'function') {
+    area = new Shape(options).getArea();
+  } else {
+    throw new Error('Invalid shape: ' + shape);
   }
 
   return area;
