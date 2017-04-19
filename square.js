@@ -23,6 +23,10 @@ class Square extends shape {
     super(options);
     this.width = this.options.width;
   }
+
+  getArea() {
+    return Math.pow(this.width, 2);
+  }
 }
 
 shape.shapes.Square = Square;

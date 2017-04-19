@@ -21,6 +21,10 @@ class Triangle extends shape {
     this.width = this.options.width;
     this.height = this.options.height;
   }
+
+  getArea() {
+    return 0.5 * this.width * this.height;
+  }
 }
 
 shape.shapes.Triangle = Triangle;
